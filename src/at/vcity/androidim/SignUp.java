@@ -78,7 +78,7 @@ public class SignUp extends Messenger  {
 								User newUser = new User(usernameText.getText().toString(),passwordText.getText().toString());
 							    usersdb.open();
 							    usersdb.add(newUser);
-								Toast.makeText(getApplicationContext(),R.string.EnregistrementReussi, Toast.LENGTH_LONG).show();
+								Toast.makeText(getApplicationContext(),R.string.signup_successfull, Toast.LENGTH_LONG).show();
 							    //usersdb.close();
 								}
 					}

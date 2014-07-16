@@ -78,9 +78,9 @@ public class Login extends Messenger {
 					//usersdb.open();
 					if ( usersdb.checkIfExist(user) ) {
 						
-						/*Toast.makeText(getApplicationContext(),R.string.user_authenticated_success, Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(),R.string.user_authenticated_success, Toast.LENGTH_LONG).show();
 						Intent i = new Intent(Login.this, FriendList.class);																
-						startActivity(i);*/
+						startActivity(i);
 						
 					}
 				

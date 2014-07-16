@@ -19,7 +19,6 @@
 	your username and password correct</string>
 	<string name="user_offline">This user is offline</string>
 	<string name="user_authenticated_success">User authenticated successfully! </string>
-	<string name="EnregistrementReussi">Enregistrement Reussi </string>
 	<string name="sign_up">Sign up</string>
 	<string name="exit_application">Exit</string>
 	<string name="password_again">Password(again):</string>
