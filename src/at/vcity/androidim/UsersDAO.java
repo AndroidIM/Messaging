@@ -55,4 +55,14 @@ public class UsersDAO extends DAOBase {
 	 if( c.getCount() == 0 ){ return false;}
 	 else { return true ;}
  }
+ /**
+  * 
+  */
+ public boolean checkLoginTaken(String login){
+	 Cursor c = mDb.rawQuery("select " + USER_LOGIN + " from " + USERS_TABLE_NAME + " where login =  ?" ,  new String[]{login});
+	 
+	 if( c.getCount() == 0 ){ // the login is not taken
+		 return false;}
+	 else { return true ;}
+ }
 }

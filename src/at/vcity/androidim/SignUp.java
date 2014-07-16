@@ -70,20 +70,36 @@ public class SignUp extends Messenger  {
 					if (usernameText.length() > 0 &&		
 						passwordText.length() > 0 && 
 						passwordAgainText.length() > 0 &&
-						eMailText.length() > 0 && passwordText.equals(passwordAgainText)
+						eMailText.length() > 0 
 						)
-					{    
-						       // System.out.println("condition succes ");
-								//TODO check email address is valid
-								User newUser = new User(usernameText.getText().toString(),passwordText.getText().toString());
-							    usersdb.open();
-							    usersdb.add(newUser);
-								Toast.makeText(getApplicationContext(),R.string.signup_successfull, Toast.LENGTH_LONG).show();
-							    //usersdb.close();
-								}
-					}
 						
-				       	
+					{   
+						if(passwordText.getText().toString().equals(passwordAgainText.getText().toString())){
+							
+						 	  if(usernameText.length()>=5 && passwordText.length()<=5){
+						 		  //Check if the login is already taken
+						 		  if(!usersdb.checkLoginTaken(usernameText.getText().toString())){
+						 	
+								   //TODO check email address is valid
+						 			User newUser = new User(usernameText.getText().toString(),passwordText.getText().toString());
+						 			usersdb.open();
+						 			usersdb.add(newUser);
+						 			Toast.makeText(getApplicationContext(),R.string.signup_successfull, Toast.LENGTH_LONG).show();
+						 			//usersdb.close();
+							      }
+						 	  
+						 		  else{Toast.makeText(getApplicationContext(),R.string.signup_username_crashed, Toast.LENGTH_LONG).show();}
+						}
+						     else{Toast.makeText(getApplicationContext(),R.string.username_and_password_length_short, Toast.LENGTH_LONG).show();}
+						}
+					
+						else{Toast.makeText(getApplicationContext(),R.string.signup_type_same_password_in_password_fields, Toast.LENGTH_LONG).show();}
+					    
+				   }
+					
+				   else{Toast.makeText(getApplicationContext(),R.string.signup_fill_all_fields, Toast.LENGTH_LONG).show();}
+				}
+					       	
 	        });
 	        
 	        cancelButton.setOnClickListener(new OnClickListener(){

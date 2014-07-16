@@ -66,16 +66,10 @@ public class Login extends Messenger {
 			public void onClick(View arg0) 
 		
 			{					
-				//if(usersdb.checkIfExist(new User("hajar","hajar"))){System.out.println("hajar existe");}
 				if (usernameText.length()>0 && passwordText.length() >0){
 					// checking if the login exists in the database
-				
 					User user = new User(usernameText.getText().toString(),passwordText.getText().toString());
-				//	String a = usernameText.getText().toString();
-				//	System.out.println("login insere : "+ a);
-				//	String b = passwordText.toString();
-				//	System.out.println("password insere : "+ b);
-					//usersdb.open();
+
 					if ( usersdb.checkIfExist(user) ) {
 						
 						Toast.makeText(getApplicationContext(),R.string.user_authenticated_success, Toast.LENGTH_LONG).show();
@@ -87,6 +81,8 @@ public class Login extends Messenger {
 				else{
 					Toast.makeText(getApplicationContext(),R.string.make_sure_username_and_password_correct, Toast.LENGTH_LONG).show();}
 				}
+			 
+				else{ Toast.makeText(getApplicationContext(),R.string.signup_fill_all_fields, Toast.LENGTH_LONG).show();}
 				//usersdb.close();
 			}       	
 		
